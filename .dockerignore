@@ -1,0 +1,9 @@
+.git
+
+.DS_Store
+.env
+.gitignore
+###
+Dockerfile
+####
+helm_chart
