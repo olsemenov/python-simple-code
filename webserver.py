@@ -16,6 +16,7 @@ color_codes = {
 }
 
 color = os.environ.get('APP_COLOR') or random.choice(["red","green","blue","blue2","darkblue","pink"])
+MY_PORT = os.environ.get('PORT') or 8080
 
 @app.route("/")
 def main():
@@ -39,4 +40,4 @@ def read_file():
     return render_template('index.html', name=socket.gethostname(), contents=contents, color=color_codes[color])
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port="8080")
+    app.run(host="0.0.0.0", port=int(MY_PORT))
