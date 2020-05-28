@@ -1,0 +1,60 @@
+env: develop
+
+fullnameOverride: ""
+nameOverride: ""
+
+image:
+  pullPolicy: IfNotPresent
+  repository: justocer/simple-python-webserver
+  tag: "v1"
+
+imageCredentials:
+  enabled: false
+  password: RXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  registry: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
+  username: gXXXXXXXXXXXX
+
+podSecurityContext: {}
+securityContext: {}
+
+### How many versions keep in history ###
+revisionHistoryLimit: 1
+
+containerPort: 80
+
+service:
+  enabled: true
+  port: 80
+  type: ClusterIP
+
+serviceAccount:
+  create: false
+  name: null
+
+## How many pods in deployment ## 
+replicaCount: 1
+
+### Limits for containers in the pod ###  
+resources:
+## Resources needed for startup ##
+  # requests:
+  #   memory: 256Mi
+  #   cpu: 100m
+  limits:
+    cpu: 400m
+    # memory: 256Mi
+
+### Autoscaling parameters ###
+# Use only when resources limits specified #
+autoscaling:
+  enabled: false
+  maxReplicas: 1
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+# Uncomment for scaling triggered when memory percentage usage more then #  
+  # targetMemoryUtilizationPercentage: 50
+
+### Assigning Pods to Nodes ###
+nodeSelector: {}
+affinity: {}
+tolerations: []

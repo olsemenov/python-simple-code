@@ -1,0 +1,21 @@
+# apiVersion: networking.k8s.io/v1
+# kind: NetworkPolicy
+# metadata:
+#   name: "network-policy-{{ .Chart.Name }}"
+# spec:
+#   podSelector:    # <<<
+#     matchLabels:
+#       app: {{ .Chart.Name }}
+#   policyTypes:    # <<<
+#   - Ingress
+#   - Egress
+#   ingress:        # <<<
+#   - ports:
+#     - protocol: TCP
+#       port: {{ .Values.containerPort }}
+#   egress:         # <<<
+#   - to:               # <<<
+#     ports: 
+# ######### DNS service discovery ####
+#     - protocol: UDP   # <<<
+#       port: 53   
