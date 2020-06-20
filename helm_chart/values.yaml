@@ -6,7 +6,7 @@ nameOverride: ""
 image:
   pullPolicy: IfNotPresent
   repository: justocer/simple-python-webserver
-  tag: "v1"
+  tag: "latest"
 
 imageCredentials:
   enabled: false
